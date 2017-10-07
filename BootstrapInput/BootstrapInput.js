@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { FormGroup, Label, Input, FormText, FormFeedback, InputGroup, InputGroupButton, Button } from 'reactstrap';
 
 class BootstrapInput extends Component {
-
+//yo
     render() {
         const field = this.props; 
         const attrs = { 
