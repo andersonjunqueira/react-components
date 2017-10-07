@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Field } from 'redux-form';
 
-import BootstrapInput from '../BootstrapInput';
+import InputBootstrap from '../Text/InputBootstrap';
 
 class TextArea extends Component {
 
@@ -34,7 +34,7 @@ class TextArea extends Component {
     render() {
         return (
             <Field name={this.props.name}
-                component={BootstrapInput}
+                component={InputBootstrap}
                 type="textarea"
 
                 label={this.props.label}

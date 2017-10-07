@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
+import { Field } from 'redux-form';
 
-import Text from '../Text';
+import NumberBootstrap from './NumberBootstrap';
 
 //TODO FORMATAÇÃO DE NÚMERO DECIMAL
 
@@ -12,7 +13,7 @@ export const numberFunctions = {
 
 class Number extends Component {
 
-    constructor(props) {
+    constructor(props) { 
         super(props);
         this.getValidators = this.getValidators.bind(this);
         this.normalize = this.normalize.bind(this);
@@ -21,12 +22,12 @@ class Number extends Component {
     getValidators() {
         const validators = [];
 
-        if(this.props.minValue) {
-            validators.push(numberFunctions.minValueValidator(this.props.minValue));
+        if(this.props.min) {
+            validators.push(numberFunctions.minValueValidator(this.props.min));
         }
 
-        if(this.props.maxValue) {
-            validators.push(numberFunctions.maxValueValidator(this.props.maxValue));
+        if(this.props.max) {
+            validators.push(numberFunctions.maxValueValidator(this.props.max));
         }
 
         this.props.validators.forEach(function(v){
@@ -46,12 +47,14 @@ class Number extends Component {
 
     render() {
         return (
-            <Text {...this.props} validators={this.getValidators()}/>
+            <Field component={NumberBootstrap} 
+                type="input"
+                validate={this.getValidators()}
+                {...this.props}
+            ></Field>
         );
     }
 }
-
-//TODO [AJ] INCLUIR COMPORTAMENTO PARA CASAS DECIMAIS
 
 Number.propTypes = {
     name: PropTypes.string,
@@ -77,8 +80,10 @@ Number.propTypes = {
     normalize: PropTypes.func,
 
     // NUMBER 
-    maxValue: PropTypes.number,
-    minValue: PropTypes.number
+    max: PropTypes.number,
+    min: PropTypes.number,
+    step: PropTypes.number,
+    precision: PropTypes.number
 }
 
 Number.defaultProps = {

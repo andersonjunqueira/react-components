@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Field } from 'redux-form';
 
-import InputBootstrap from './InputBootstrap';
+import InputBootstrap from './InputBootstrap'; 
 import { translate } from '../Intl/Intl.actions';
 
 export const textFunctions = { 

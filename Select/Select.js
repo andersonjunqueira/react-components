@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Field } from 'redux-form';
 
 import { translate } from '../Intl/Intl.actions';
-import BootstrapInput from '../BootstrapInput';
+import InputBootstrap from '../Text/InputBootstrap';
 
 //TODO REVER O COMPONENTE PARA N�O UTILIZAR O BOOTSTRAPINPUT E SIM O INPUTBOOTSTRAP OU SIMILAR
 class Select extends Component {
@@ -28,7 +28,7 @@ class Select extends Component {
         };
 
         return (
-            <Field component={BootstrapInput} {...attrs}/>
+            <Field component={InputBootstrap} {...attrs}/>
         );
     }
 }
