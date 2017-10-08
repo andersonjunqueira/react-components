@@ -19,6 +19,7 @@ class InputBootstrap extends Component {
             placeholder: this.props.placeholder,
             maxLength: this.props.maxLength,
             disabled: this.props.disabled,
+            rows: this.props.rows
         };
 
         return (

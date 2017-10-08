@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import isEmail from 'sane-email-validation';
+import { Field } from 'redux-form';
 
-import Text from '../Text';
+import InputBootstrap from '../Text/InputBootstrap'; 
 
 export const emailFunctions = {
      validateEmail: min => value => (value && !isEmail(value)) ? "e-mail inválido" : undefined 
@@ -27,30 +28,42 @@ class Email extends Component {
 
     render() {
         return (
-            <Text
-                name={this.props.name}
-                label={this.props.label}
-                placeholder={this.props.placeholder} 
-                help={this.props.help}
-                maxLength={this.props.maxLength}
-                required={this.props.required}
-                validators={this.getValidators()}
-            />
+            <Field component={InputBootstrap} 
+                type="input"
+                validate={this.getValidators()}
+                {...this.props}
+            ></Field> 
         );
     }
 }
 
 Email.propTypes = {
+    name: PropTypes.string,
+    
+    // INPUT DECORATOR
     label: PropTypes.node,
     placeholder: PropTypes.node,
-    help: PropTypes.string,
-    maxLength: PropTypes.number,
+    help: PropTypes.node,
     required: PropTypes.bool,
+    disabled: PropTypes.bool,
+    inputSize: PropTypes.number,
+    labelSize: PropTypes.number,
+    action: PropTypes.func,
+    actionIcon: PropTypes.string,
+    actionLabel: PropTypes.node,
+    leftAddon: PropTypes.node,
+    rightAddon: PropTypes.node,
+    leftIconAddon: PropTypes.node,
+    rightIconAddon: PropTypes.node,
+
+    // COMMON
     validators: PropTypes.array
 }
 
 Email.defaultProps = {
-    validators: []
+    required: false,
+    validators: [],
+    leftAddon: "@"
 };
 
 export default Email;

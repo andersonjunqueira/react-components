@@ -3,8 +3,6 @@ import { Field } from 'redux-form';
 
 import NumberBootstrap from './NumberBootstrap';
 
-//TODO FORMATAÇÃO DE NÚMERO DECIMAL
-
 export const numberFunctions = { 
     applyMask: (value) => value !== undefined ? value.replace(/[^\d]/g, '') : value,
     minValueValidator: min => value => (value && value < min) ? "Valor mínimo permitido: " + min : undefined,

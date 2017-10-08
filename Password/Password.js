@@ -55,7 +55,7 @@ Password.propTypes = {
     rightIconAddon: PropTypes.node,
 
     // COMMON
-    validators: PropTypes.array,
+    validators: PropTypes.array
 
 }
 

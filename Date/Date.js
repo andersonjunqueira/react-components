@@ -4,7 +4,6 @@ import  { textFunctions } from '../Text';
 import  Number, { numberFunctions } from '../Number';
 
 //TODO CRIAR UM COMPONENTE COM SELEÇÃO DE DATA EM CALENDÁRIO
-//TODO REMOVER ESSAS FUNÇÕES DE CONVERSÃO DE DATA
 //TODO CRIAR UMA VALIDAÇÃO DE DATA DECENTE
 
 export const dateFunctions = {  

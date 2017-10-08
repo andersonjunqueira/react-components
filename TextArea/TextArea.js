@@ -47,6 +47,7 @@ class TextArea extends Component {
                 className={this.props.className}
                 rightButtonLabel={this.props.rightButtonLabel}
                 rightButtonAction={this.props.rightButtonAction}
+                rows={this.props.rows}
             />
         );
     }
@@ -61,7 +62,8 @@ TextArea.propTypes = {
     required: PropTypes.bool,
     validators: PropTypes.array,
     rightButtonLabel: PropTypes.string,
-    rightButtonAction: PropTypes.func
+    rightButtonAction: PropTypes.func,
+    rows: PropTypes.number
 }
 
 TextArea.defaultProps = {
