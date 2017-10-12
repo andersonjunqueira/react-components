@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Field } from 'redux-form';
-import BootstrapFile from './BootstrapFile'
+import FileBootstrap from './FileBootstrap'
 
 //TODO MINIATURA OU INDICATIVO DE PDF NÃO É EXIBIDO
 
@@ -56,7 +56,7 @@ class File extends Component {
     render() {
         return (
             <Field name={this.props.name}
-                component={BootstrapFile}
+                component={FileBootstrap}
                 onChange={this.props.onChange}
                 accept={this.props.accept}
                 maxSize={this.props.maxSize}
@@ -90,7 +90,8 @@ File.propTypes = {
 
 File.defaultProps = {
     required: false,
-    validators: []
+    validators: [],
+    height: 180
 };
 
 export default File;

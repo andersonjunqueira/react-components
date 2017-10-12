@@ -1,7 +1,10 @@
+// REFERENCIA DE MASCARA
+// https://github.com/insin/inputmask-core#pattern
+
 import React, { Component, PropTypes } from 'react';
 import { Field } from 'redux-form';
 
-import MaskBootstrap from './MaskBootstrap';
+import MaskBootstrap from './MaskBootstrap'; 
 
 class Mask extends Component {
 

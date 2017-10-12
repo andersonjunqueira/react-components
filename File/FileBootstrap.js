@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { FormGroup, Label, FormText, FormFeedback } from 'reactstrap';
 import Dropzone from 'react-dropzone';
 
-class BootstrapFile extends Component {
+class FileBootstrap extends Component {
 
     onChange(files) {
         if(this.props.input.onChange) {
@@ -57,7 +57,7 @@ class BootstrapFile extends Component {
     }
 }
 
-BootstrapFile.propTypes = {
+FileBootstrap.propTypes = {
     label: PropTypes.node,
     placeholder: PropTypes.node,
     help: PropTypes.node,
@@ -67,4 +67,5 @@ BootstrapFile.propTypes = {
     accept: PropTypes.string,
     maxSize: PropTypes.number
 }
-export default BootstrapFile;
+
+export default FileBootstrap;

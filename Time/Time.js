@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 
 import  { textFunctions } from '../Text';
 import { translate } from '../Intl/Intl.actions';
-import  Text from '../Text';
+import Mask from '../Mask'; 
 
 export const timeFunctions = {  
     applyMask: (value) => {
@@ -12,7 +12,6 @@ export const timeFunctions = {
     checkTimeFormat: value => {
         return value.split(":").length === 2 ? translate("formato-invalido") : undefined;
     },
-
     checkTimeValues: value => {
         console.log(value);
         const temp = value.split(":");
@@ -47,17 +46,7 @@ class Time extends Component {
 
     render() {
         return (
-            <Text 
-                name={this.props.name}
-                label={this.props.label}
-                placeholder="__:__" 
-                help={this.props.help}
-                maxLength={5}
-                required={this.props.required}
-                normalize={this.normalize}
-                className=""
-                validators={this.getValidators()}
-            />
+            <Mask validate={this.getValidators()} {...this.props}/>               
         )
     }
 }
@@ -69,6 +58,8 @@ Time.propTypes = {
 }
 
 Time.defaultProps = {
+    required: false,
+    mask: "11:11",
     leftIconAddon: "fa fa-clock-o"
 }
 

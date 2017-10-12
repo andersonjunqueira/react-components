@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import { Input } from 'reactstrap';
-import MaskedInput from 'react-maskedinput';
 
+import MaskedInput from 'react-maskedinput';
 import InputDecorator from '../InputDecorator';
 
 class MaskBootstrap extends Component {
@@ -19,8 +18,9 @@ class MaskBootstrap extends Component {
             id: this.props.input.name,
             placeholder: this.props.placeholder,
             maxLength: this.props.maxLength,
-            className: "form-control",
-            mask: this.props.mask
+            disabled: this.props.disabled,
+            mask: this.props.mask,
+            className: "form-control"
         };
 
         return (
@@ -36,10 +36,12 @@ MaskBootstrap.propTypes = {
     placeholder: PropTypes.node,
     help: PropTypes.node,
     required: PropTypes.bool,
+    disabled: PropTypes.bool,
     inputSize: PropTypes.number,
     labelSize: PropTypes.number,
+
     action: PropTypes.func,
-    actionIcon: PropTypes.string,
+    actionIcon: PropTypes.string, 
     actionLabel: PropTypes.node,
     leftAddon: PropTypes.node,
     rightAddon: PropTypes.node,

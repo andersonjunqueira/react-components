@@ -1,10 +1,8 @@
 import React, { Component, PropTypes } from 'react';
-import { Field } from 'redux-form';
 
 import  { textFunctions } from '../Text';
 import  { numberFunctions } from '../Number';
-import InputBootstrap from '../Text/InputBootstrap'; 
-
+import Mask from '../Mask'; 
 
 export const cnpjFunctions = { 
     applyMask: (value) => {
@@ -88,12 +86,7 @@ class CNPJ extends Component {
 
     render() {
         return (
-            <Field component={InputBootstrap} 
-                type="input"
-                validate={this.getValidators()}
-                normalize={this.normalize}
-                {...this.props}
-            ></Field>
+            <Mask validate={this.getValidators()} {...this.props}/>
         );
     }
 }
@@ -107,8 +100,7 @@ CNPJ.propTypes = {
 
 CNPJ.defaultProps = {
     validators: [],
-    placeholder: "__.___.___/____-__",
-    maxLength: 18
+    mask: "11.111.111/1111-11"
 };
 
 export default CNPJ;

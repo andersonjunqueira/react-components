@@ -1,9 +1,8 @@
 import React, { Component, PropTypes } from 'react';
-import { Field } from 'redux-form';
 
 import  { textFunctions } from '../Text';
 import  { numberFunctions } from '../Number';
-import InputBootstrap from '../Text/InputBootstrap'; 
+import Mask from '../Mask'; 
 
 export const cpfFunctions = { 
     applyMask: (value) => {
@@ -82,13 +81,8 @@ class CPF extends Component {
     }
 
     render() {
-        return (
-            <Field component={InputBootstrap} 
-                type="input"
-                validate={this.getValidators()}
-                normalize={this.normalize}
-                {...this.props}
-            ></Field>
+        return ( 
+            <Mask validate={this.getValidators()} {...this.props}/>
         );
     }
 }
@@ -102,8 +96,7 @@ CPF.propTypes = {
 
 CPF.defaultProps = {
     validators: [],
-    placeholder: "___.___.___-__",
-    maxLength: 14
+    mask: "111.111.111-11"
 };
 
 export default CPF;

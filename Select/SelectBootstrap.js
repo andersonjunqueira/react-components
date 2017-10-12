@@ -3,7 +3,7 @@ import { Input } from 'reactstrap';
 
 import InputDecorator from '../InputDecorator';
 
-class InputBootstrap extends Component {
+class SelectBootstrap extends Component {
 
     render() {
         const idAttrs = {
@@ -24,13 +24,17 @@ class InputBootstrap extends Component {
 
         return (
             <InputDecorator {...idAttrs}>
-                <Input {...attrs}/>
+                <Input {...attrs}>
+                    {this.props.options.map( (op, index) => {
+                        return (<option key={index} value={op.value}>{op.text}</option>);
+                    })}
+                </Input>
             </InputDecorator>
         );
     }
 }
 
-InputBootstrap.propTypes = {
+SelectBootstrap.propTypes = {
     label: PropTypes.node,
     placeholder: PropTypes.node,
     help: PropTypes.node,
@@ -38,15 +42,7 @@ InputBootstrap.propTypes = {
     disabled: PropTypes.bool,
     inputSize: PropTypes.number,
     labelSize: PropTypes.number,
-
-    action: PropTypes.func,
-    actionIcon: PropTypes.string, 
-    actionLabel: PropTypes.node,
-    leftAddon: PropTypes.node,
-    rightAddon: PropTypes.node,
-    leftIconAddon: PropTypes.node,
-    rightIconAddon: PropTypes.node,
-    size: PropTypes.string,
+    options: PropTypes.arrayOf(PropTypes.object),
 }
 
-export default InputBootstrap;
+export default SelectBootstrap;

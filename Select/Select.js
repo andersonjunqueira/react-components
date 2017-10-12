@@ -2,15 +2,14 @@ import React, { Component, PropTypes } from 'react';
 import { Field } from 'redux-form';
 
 import { translate } from '../Intl/Intl.actions';
-import InputBootstrap from '../Text/InputBootstrap';
+import SelectBootstrap from './SelectBootstrap';
 
 class Select extends Component {
 
     render() {
-
         let ops = [...this.props.options];
         if(ops && this.props.undefinedOption) {
-            ops.unshift({ value: undefined, text: translate("selecione")});
+            ops.unshift({ value: undefined, text: (this.props.disabled ? "" : translate("selecione"))});
         }
 
         const attrs = { 
@@ -27,7 +26,7 @@ class Select extends Component {
         };
 
         return (
-            <Field component={InputBootstrap} {...attrs}/>
+            <Field component={SelectBootstrap} {...attrs}/>
         );
     }
 }
@@ -38,6 +37,7 @@ Select.propTypes = {
     help: PropTypes.string,
     required: PropTypes.bool,
     disabled: PropTypes.bool,
+
     undefinedOption: PropTypes.bool,
     options: PropTypes.arrayOf(PropTypes.object),
     onChange: PropTypes.func

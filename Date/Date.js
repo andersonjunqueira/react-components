@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 
 import  { textFunctions } from '../Text';
-import  Number, { numberFunctions } from '../Number';
+import  { numberFunctions } from '../Number';
+import Mask from '../Mask'; 
 
 //TODO CRIAR UM COMPONENTE COM SELEÇÃO DE DATA EM CALENDÁRIO
 //TODO CRIAR UMA VALIDAÇÃO DE DATA DECENTE
@@ -52,17 +53,7 @@ class Date extends Component {
 
     render() {
         return (
-            <Number 
-                name={this.props.name}
-                label={this.props.label}
-                placeholder="__/__/____" 
-                help={this.props.help}
-                maxLength={10}
-                required={this.props.required}
-                normalize={this.normalize}
-                className=""
-                validators={this.getValidators()}
-            />
+            <Mask validate={this.getValidators()} {...this.props}/>
         )
     }
 }
@@ -74,7 +65,9 @@ Date.propTypes = {
 }
 
 Date.defaultProps = {
-    required: false
+    required: false,
+    leftIconAddon: "fa fa-calendar",
+    mask: "11/11/1111"
 };
 
 export default Date;

@@ -2,10 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import  { textFunctions } from '../Text';
-import  Number, { numberFunctions } from '../Number';
-
+import  { numberFunctions } from '../Number';
 import  { searchZipcode } from './ZipCode.actions';
-import { translate } from '../../components/Intl/Intl.actions';
+import { translate } from '../Intl/Intl.actions';
+import Mask from '../Mask'; 
 
 export const zipcodeFunctions = {  
     applyMask: (value) => {
@@ -46,20 +46,10 @@ class ZipCode extends Component {
     }
 
     render() {
-        return (
-            <Number 
-                name={this.props.name}
-                label={this.props.label}
-                placeholder={this.props.placeholder} 
-                help={this.props.help}
-                maxLength={10}
-                required={this.props.required}
-                normalize={this.normalize}
-                className=""
-
+        return ( 
+            <Mask {...this.props}
                 actionLabel={translate("pesquisar-cep")}
-                action={this.doSearch}
-            />
+                action={this.doSearch}/>
         )
     }
 }
@@ -72,6 +62,10 @@ ZipCode.propTypes = {
     help: PropTypes.string,
     required: PropTypes.bool
 }
+
+ZipCode.defaultProps = {
+    mask: "11.111-111"
+};
 
 const mapStateToProps = (state) => {
     return {
