@@ -1,7 +1,9 @@
 import React, { Component, PropTypes } from 'react';
+import { Field } from 'redux-form';
 
 import  { textFunctions } from '../Text';
-import  Number, { numberFunctions } from '../Number';
+import  { numberFunctions } from '../Number';
+import InputBootstrap from '../Text/InputBootstrap'; 
 
 export const phoneFunctions = { 
     applyMask: (value) => {
@@ -35,16 +37,11 @@ class Phone extends Component {
 
     render() {
         return (
-            <Number 
-                name={this.props.name}
-                label={this.props.label}
-                placeholder={this.props.placeholder} 
-                help={this.props.help}
-                required={this.props.required}
-                maxLength={15}
-                className=""
+            <Field component={InputBootstrap} 
+                type="input"
                 normalize={this.normalize}
-            />
+                {...this.props}
+            ></Field>
         );
     }
 }
@@ -55,5 +52,10 @@ Phone.propTypes = {
     help: PropTypes.string,
     required: PropTypes.bool,
 }
+
+Phone.defaultProps = {
+    validators: [],
+    maxLength: 15
+};
 
 export default Phone;
