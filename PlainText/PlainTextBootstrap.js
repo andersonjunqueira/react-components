@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import { Input } from 'reactstrap';
 
 import InputDecorator from '../InputDecorator';
 
