@@ -4,7 +4,7 @@ import { Field } from 'redux-form';
 import NumberBootstrap from './NumberBootstrap';
 
 export const numberFunctions = { 
-    applyMask: (value) => value !== undefined ? value.replace(/[^\d]/g, '') : value,
+    applyMask: (value) => (value !== undefined && value != null) ? value.replace(/[^\d]/g, '') : value,
     minValueValidator: min => value => (value && value < min) ? "Valor mínimo permitido: " + min : undefined,
     maxValueValidator: max => value => (value && value > max) ? "Valor máximo permitido: " + max : undefined
 }

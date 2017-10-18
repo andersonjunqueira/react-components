@@ -6,6 +6,9 @@ import Mask from '../Mask';
 
 export const cpfFunctions = { 
     applyMask: (value) => {
+        if(value == null || value == undefined) {
+            return value;
+        }
         let nums = numberFunctions.applyMask(value);
         return nums.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/g,"$1.$2.$3-$4");
     },
