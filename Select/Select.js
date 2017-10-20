@@ -6,6 +6,19 @@ import SelectBootstrap from './SelectBootstrap';
 
 class Select extends Component {
 
+    getValidators() {
+        const validators = [];
+        if(this.props.required) {
+            validators.push((value) => {
+                return (!value || value === translate("selecione") ) ? translate("campo-obrigatorio") : undefined 
+            });
+        }
+        this.props.validators.forEach(function(v) {
+            validators.push(v);
+        });
+        return validators;
+    }
+
     render() {
         let ops = [...this.props.options];
         if(ops && this.props.undefinedOption) {
@@ -26,7 +39,7 @@ class Select extends Component {
         };
 
         return (
-            <Field component={SelectBootstrap} {...attrs}/>
+            <Field component={SelectBootstrap} {...attrs} validate={this.getValidators()}/>
         );
     }
 }
@@ -46,7 +59,8 @@ Select.propTypes = {
 Select.defaultProps = {
     undefinedOption: true,
     disabled: false,
-    options: []
+    options: [],
+    validators: []
 };
 
 export default Select;

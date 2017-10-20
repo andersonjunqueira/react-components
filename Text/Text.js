@@ -9,7 +9,7 @@ export const textFunctions = {
 }
 
 class Text extends Component {
-
+ 
     constructor(props) {
         super(props);
         this.getValidators = this.getValidators.bind(this);
