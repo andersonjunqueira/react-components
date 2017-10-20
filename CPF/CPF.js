@@ -6,7 +6,7 @@ import Mask from '../Mask';
 
 export const cpfFunctions = { 
     applyMask: (value) => {
-        if(value == null || value == undefined) {
+        if(value === null || value === undefined) {
             return value;
         }
         let nums = numberFunctions.applyMask(value);
